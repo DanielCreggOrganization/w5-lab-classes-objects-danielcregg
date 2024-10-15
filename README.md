@@ -60,7 +60,7 @@ classDiagram
 
 **Task**:
 
-1. Create a package named ``ie.atu.classesandobjects``
+1. Create a package named ``ie.atu.classesandobjects``. All classes you create for this lab below will go in here.
 2. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
 3. Create a Java class for this object.
 4. Define at least three fields (attributes) and one method (behavior).
