@@ -59,7 +59,7 @@ classDiagram
 
 **Task**:
 
-1. Choose a real-world object (e.g., `Bicycle`, `Book`, `Phone`).
+1. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
 2. Create a Java class for this object.
 3. Define at least three fields (attributes) and one method (behavior).
 4. Write code to define the class in a `.java` file.
