@@ -63,7 +63,6 @@ classDiagram
 1. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
 2. Create a Java class for this object.
 3. Define at least three fields (attributes) and one method (behavior).
-4. Write the code in a `.java` file.
 
 ---
 
@@ -119,7 +118,6 @@ classDiagram
 1. Define a class named `Student`.
 2. Add fields: `String name`, `int age`, `String studentID`.
 3. Write a method `displayInfo()` that prints the student's details.
-4. Write the code in a `Student.java` file.
 
 **Sample Output when `displayInfo()` is called**:
 
@@ -185,7 +183,6 @@ sequenceDiagram
 2. Create an instance of `Student`:
    - Assign values to its fields (`name`, `age`, `studentID`).
 3. Call the `displayInfo()` method to print the student's details.
-4. Compile and run your program to ensure it works correctly.
 
 ---
 
@@ -556,7 +553,6 @@ sequenceDiagram
 2. Add a parameterized constructor that initializes these fields.
 3. Override the `toString()` method to return a string representation of the `Book`.
 4. In your `Main` class, create a `Book` object and print it using `System.out.println(book);`.
-5. Compile and run your program to see the output.
 
 **Sample Output**:
 
