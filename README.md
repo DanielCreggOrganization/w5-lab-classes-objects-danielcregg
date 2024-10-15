@@ -41,12 +41,28 @@ public class Car {
 }
 ```
 
-### DIY Task
+### Mermaid Diagram
+
+```mermaid
+classDiagram
+    class Car {
+        - String make
+        - String model
+        - int year
+        + startEngine()
+    }
+```
+
+### DIY Coding Task
 
 **Objective**: Think about real-world objects and how they can be represented as classes in Java.
 
-- Identify three real-world objects (e.g., `Bicycle`, `Book`, `Phone`).
-- For each object, list potential fields (attributes) and methods (behaviors) it might have.
+**Task**:
+
+1. Choose a real-world object (e.g., `Bicycle`, `Book`, `Phone`).
+2. Create a Java class for this object.
+3. Define at least three fields (attributes) and one method (behavior).
+4. Write code to define the class in a `.java` file.
 
 ---
 
@@ -82,18 +98,29 @@ public class Person {
 }
 ```
 
-### DIY Task
+### Mermaid Diagram
+
+```mermaid
+classDiagram
+    class Person {
+        - String name
+        - int age
+        + introduce()
+    }
+```
+
+### DIY Coding Task
 
 **Objective**: Create a `Student` class.
 
-#### Instructions:
+**Task**:
 
 1. Define a class named `Student`.
 2. Add fields: `String name`, `int age`, `String studentID`.
 3. Write a method `displayInfo()` that prints the student's details.
-4. No constructors are needed at this point.
+4. Write the code in a `Student.java` file.
 
-#### Sample Output:
+**Sample Output when `displayInfo()` is called**:
 
 ```
 Name: Alice Smith
@@ -133,15 +160,31 @@ public class Main {
 }
 ```
 
-### DIY Task
+### Mermaid Diagram
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant Person
+    Main->>Person: new Person()
+    activate Person
+    Person-->>Main: person1
+    deactivate Person
+    Main->>Person: set name and age
+    Main->>Person: introduce()
+```
+
+### DIY Coding Task
 
 **Objective**: Create an object of the `Student` class you defined in the previous section.
 
-#### Instructions:
+**Task**:
 
-1. In your `Main` class, create an instance of `Student`.
-2. Assign values to its fields.
+1. In a `Main.java` file, write the `main` method.
+2. Create an instance of `Student`:
+   - Assign values to its fields (`name`, `age`, `studentID`).
 3. Call the `displayInfo()` method to print the student's details.
+4. Compile and run your program to ensure it works correctly.
 
 ---
 
@@ -186,6 +229,19 @@ public class Person {
 }
 ```
 
+### Mermaid Diagram
+
+```mermaid
+classDiagram
+    class Person {
+        - String name
+        - int age
+        + Person()
+        + Person(String name, int age)
+        + introduce()
+    }
+```
+
 ### Example
 
 Using the `Person` class with constructors.
@@ -204,17 +260,21 @@ public class Main {
 }
 ```
 
-### DIY Task
+### DIY Coding Task
 
 **Objective**: Add constructors to your `Student` class.
 
-#### Instructions:
+**Task**:
 
-1. Add a default constructor that sets default values for the fields.
-2. Add a parameterized constructor that accepts `name`, `age`, and `studentID`.
-3. Modify your `Main` class to create `Student` objects using both constructors.
+1. In your `Student` class, add:
+   - A default constructor that sets default values for the fields (`name`, `age`, `studentID`).
+   - A parameterized constructor that accepts `name`, `age`, and `studentID` as parameters.
+2. Modify your `Main` class to:
+   - Create a `Student` object using the default constructor and call `displayInfo()`.
+   - Create another `Student` object using the parameterized constructor and call `displayInfo()`.
+3. Compile and run your program to see both outputs.
 
-#### Sample Output:
+**Sample Output**:
 
 ```
 Name: Unknown
@@ -251,6 +311,16 @@ public class Person {
 }
 ```
 
+### Mermaid Diagram
+
+```mermaid
+sequenceDiagram
+    participant Person
+    Note right of Person: Constructor call with parameters name and age
+    Person->>Person: this.name = name
+    Person->>Person: this.age = age
+```
+
 ### Example
 
 Implementing the `this` keyword in the `Student` class.
@@ -260,6 +330,11 @@ public class Student {
     String name;
     int age;
     String studentID;
+
+    // Default constructor
+    public Student() {
+        this("Unknown", 0, "N/A");
+    }
 
     // Parameterized constructor using 'this'
     public Student(String name, int age, String studentID) {
@@ -276,15 +351,17 @@ public class Student {
 }
 ```
 
-### DIY Task
+### DIY Coding Task
 
 **Objective**: Practice using the `this` keyword.
 
-#### Instructions:
+**Task**:
 
-1. Update your `Student` class constructors to use the `this` keyword.
-2. Use `this` in the `displayInfo()` method as well.
-3. Verify that your program still works as expected.
+1. Update your `Student` class:
+   - Ensure that both constructors use the `this` keyword to refer to class fields.
+   - In the default constructor, call the parameterized constructor using `this(...)`.
+2. Use `this` in the `displayInfo()` method as shown.
+3. Verify that your program still works as expected by compiling and running it.
 
 ---
 
@@ -332,18 +409,33 @@ public class Main {
 }
 ```
 
-### DIY Task
+### Mermaid Diagram
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant Student
+    Main->>Student: new Student("Carol", 21, "S00345")
+    Student-->>Main: student
+    Main->>Student: System.out.println(student)
+    Student->>Student: toString()
+    Student-->>Main: String representation
+    Main-->>Console: Output
+```
+
+### DIY Coding Task
 
 **Objective**: Override the `toString()` method in another class.
 
-#### Instructions:
+**Task**:
 
 1. Create a new class called `Book` with fields `title`, `author`, and `price`.
-2. Add a parameterized constructor.
+2. Add a parameterized constructor that initializes these fields.
 3. Override the `toString()` method to return a string representation of the `Book`.
-4. In your `Main` class, create a `Book` object and print it.
+4. In your `Main` class, create a `Book` object and print it using `System.out.println(book);`.
+5. Compile and run your program to see the output.
 
-#### Sample Output:
+**Sample Output**:
 
 ```
 Book{title='Effective Java', author='Joshua Bloch', price=45.99}
@@ -377,3 +469,5 @@ In this lab, we've covered:
 ---
 
 **Congratulations!** You've now practiced creating and using classes, constructors, the `this` keyword, and overriding the `toString()` method in Java. Keep experimenting with new classes and explore inheritance, polymorphism, and other OOP concepts to deepen your understanding.
+
+---
