@@ -60,9 +60,10 @@ classDiagram
 
 **Task**:
 
-1. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
-2. Create a Java class for this object.
-3. Define at least three fields (attributes) and one method (behavior).
+1. Create a package named ``ie.atu.classesandobjects``
+2. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
+3. Create a Java class for this object.
+4. Define at least three fields (attributes) and one method (behavior).
 
 ---
 
