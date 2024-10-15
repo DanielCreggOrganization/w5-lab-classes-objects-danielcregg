@@ -1,3 +1,8 @@
+I have retrieved the content of the `README.md` file. Let's proceed with the updates to the `Student` class and the relevant sections of the lab.
+
+### Updated `README.md`
+
+```markdown
 # Java Classes and Objects Lab
 
 ## Agenda
@@ -60,7 +65,7 @@ classDiagram
 
 **Task**:
 
-1. Create a package named ``ie.atu.classesandobjects``. All classes you create for this lab below will go in here.
+1. Create a package named `ie.atu.classesandobjects`. All classes you create for this lab below will go in here.
 2. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
 3. Create a Java class for this real-world object. Remember all classes start with a capital letter.
 4. Define at least three fields (attributes) and one method (behavior).
@@ -117,15 +122,15 @@ classDiagram
 **Task**:
 
 1. Define a class named `Student`.
-2. Add fields: `String name`, `int age`, `String studentID`.
+2. Add fields: `String studentID`, `int age`, `boolean isRegistered`.
 3. Write a method `displayInfo()` that prints the student's details.
 
 **Sample Output when `displayInfo()` is called**:
 
 ```
-Name: Alice Smith
-Age: 20
 Student ID: S00123
+Age: 20
+Registered: true
 ```
 
 ---
@@ -182,7 +187,7 @@ sequenceDiagram
 
 1. In a `Main.java` file, write the `main` method.
 2. Create an instance of `Student`:
-   - Assign values to its fields (`name`, `age`, `studentID`).
+   - Assign values to its fields (`studentID`, `age`, `isRegistered`).
 3. Call the `displayInfo()` method to print the student's details.
 
 ---
@@ -266,8 +271,8 @@ public class Main {
 **Task**:
 
 1. In your `Student` class, add:
-   - A default constructor that sets default values for the fields (`name`, `age`, `studentID`).
-   - A parameterized constructor that accepts `name`, `age`, and `studentID` as parameters.
+   - A default constructor that sets default values for the fields (`studentID`, `age`, `isRegistered`).
+   - A parameterized constructor that accepts `studentID`, `age`, and `isRegistered` as parameters.
 2. Modify your `Main` class to:
    - Create a `Student` object using the default constructor and call `displayInfo()`.
    - Create another `Student` object using the parameterized constructor and call `displayInfo()`.
@@ -276,13 +281,13 @@ public class Main {
 **Sample Output**:
 
 ```
-Name: Unknown
-Age: 0
 Student ID: N/A
+Age: 0
+Registered: false
 
-Name: Bob Johnson
-Age: 22
 Student ID: S00234
+Age: 22
+Registered: true
 ```
 
 ---
@@ -326,26 +331,26 @@ Implementing the `this` keyword in the `Student` class.
 
 ```java
 public class Student {
-    String name;
-    int age;
     String studentID;
+    int age;
+    boolean isRegistered;
 
     // Default constructor
     public Student() {
-        this("Unknown", 0, "N/A");
+        this("N/A", 0, false);
     }
 
     // Parameterized constructor using 'this'
-    public Student(String name, int age, String studentID) {
-        this.name = name;
-        this.age = age;
+    public Student(String studentID, int age, boolean isRegistered) {
         this.studentID = studentID;
+        this.age = age;
+        this.isRegistered = isRegistered;
     }
 
     public void displayInfo() {
-        System.out.println("Name: " + this.name);
-        System.out.println("Age: " + this.age);
         System.out.println("Student ID: " + this.studentID);
+        System.out.println("Age: " + this.age);
+        System.out.println("Registered: " + this.isRegistered);
     }
 }
 ```
@@ -387,25 +392,25 @@ Let's modify the `Student` class to keep track of the total number of `Student` 
 ```java
 public class Student {
     // Instance Fields
-    String name;
-    int age;
     String studentID;
+    int age;
+    boolean isRegistered;
 
     // Static Field
     static int studentCount = 0;
 
     // Parameterized constructor using 'this'
-    public Student(String name, int age, String studentID) {
-        this.name = name;
-        this.age = age;
+    public Student(String studentID, int age, boolean isRegistered) {
         this.studentID = studentID;
+        this.age = age;
+        this.isRegistered = isRegistered;
         studentCount++; // Increment static counter
     }
 
     public void displayInfo() {
-        System.out.println("Name: " + this.name);
-        System.out.println("Age: " + this.age);
         System.out.println("Student ID: " + this.studentID);
+        System.out.println("Age: " + this.age);
+        System.out.println("Registered: " + this.isRegistered);
     }
 
     // Static Method
@@ -420,9 +425,9 @@ public class Student {
 ```java
 public class Main {
     public static void main(String[] args) {
-        Student s1 = new Student("Alice", 20, "S001");
-        Student s2 = new Student("Bob", 22, "S002");
-        Student s3 = new Student("Charlie", 21, "S003");
+        Student s1 = new Student("S001", 20, true);
+        Student s2 = new Student("S002", 22, false);
+        Student s3 = new Student("S003", 21, true);
 
         // Display individual student info
         s1.displayInfo();
@@ -438,15 +443,15 @@ public class Main {
 **Sample Output:**
 
 ```
-Name: Alice
-Age: 20
 Student ID: S001
-Name: Bob
-Age: 22
+Age: 20
+Registered: true
 Student ID: S002
-Name: Charlie
-Age: 21
+Age: 22
+Registered: false
 Student ID: S003
+Age: 21
+Registered: true
 Total Students: 3
 ```
 
@@ -455,11 +460,11 @@ Total Students: 3
 ```mermaid
 classDiagram
     class Student {
-        - String name
-        - int age
         - String studentID
+        - int age
+        - boolean isRegistered
         - static int studentCount
-        + Student(String name, int age, String studentID)
+        + Student(String studentID, int age, boolean isRegistered)
         + displayInfo()
         + static getStudentCount() int
     }
@@ -516,16 +521,16 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{name='" + name + "', age=" + age + ", studentID='" + studentID + "'}";
+        return "Student{studentID='" + studentID + "', age=" + age + ", isRegistered=" + isRegistered + "}";
     }
 }
 
 // In Main.java
 public class Main {
     public static void main(String[] args) {
-        Student student = new Student("Carol", 21, "S00345");
+        Student student = new Student("S00345", 21, true);
         System.out.println(student);
-        // Output: Student{name='Carol', age=21, studentID='S00345'}
+        // Output: Student{studentID='S00345', age=21, isRegistered=true}
     }
 }
 ```
@@ -536,7 +541,7 @@ public class Main {
 sequenceDiagram
     participant Main
     participant Student
-    Main->>Student: new Student("Carol", 21, "S00345")
+    Main->>Student: new Student("S00345", 21, true)
     Student-->>Main: student
     Main->>Student: System.out.println(student)
     Student->>Student: toString()
@@ -604,3 +609,4 @@ This lab has introduced you to fundamental concepts of Java OOP, providing a sol
 - Experiment with your own classes and projects.
 
 Happy coding!
+```
