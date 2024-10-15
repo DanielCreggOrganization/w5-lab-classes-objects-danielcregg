@@ -594,7 +594,7 @@ In this lab, we've covered:
 
 ---
 
-**Congratulations!** You've now practiced creating and using classes, constructors, the `this` keyword, static fields and methods, and overriding the `toString()` method in Java. Keep experimenting with new classes and explore inheritance, polymorphism, and other OOP concepts to deepen your understanding.
+**Congratulations!** You've now practiced creating and using classes, constructors, the `this` keyword, static fields and methods, and overriding the `toString()` method in Java. Keep experimenting with new classes and later we will explore inheritance, polymorphism, and other OOP concepts to deepen your understanding.
 
 ---
 
