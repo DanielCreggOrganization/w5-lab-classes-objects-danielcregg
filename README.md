@@ -222,9 +222,9 @@ public class Person {
     int age;
 
     // Parameterized constructor
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public Person(String personName, int personAge) {
+        name = personName;
+        age = personAge;
     }
 }
 ```
