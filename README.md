@@ -1,8 +1,3 @@
-I have retrieved the content of the `README.md` file. Let's proceed with the updates to the `Student` class and the relevant sections of the lab.
-
-### Updated `README.md`
-
-```markdown
 # Java Classes and Objects Lab
 
 ## Agenda
@@ -609,4 +604,3 @@ This lab has introduced you to fundamental concepts of Java OOP, providing a sol
 - Experiment with your own classes and projects.
 
 Happy coding!
-```
