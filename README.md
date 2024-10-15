@@ -7,8 +7,9 @@
 3. [Creating Objects](#3-creating-objects)
 4. [Constructors](#4-constructors)
 5. [The `this` Keyword](#5-the-this-keyword)
-6. [Overriding the `toString()` Method](#6-overriding-the-tostring-method)
-7. [Summary and Further Reading](#7-summary-and-further-reading)
+6. [Static Fields and Methods](#6-static-fields-and-methods)
+7. [Overriding the `toString()` Method](#7-overriding-the-tostring-method)
+8. [Summary and Further Reading](#8-summary-and-further-reading)
 
 ---
 
@@ -62,6 +63,7 @@ classDiagram
 1. Choose a real-world object (e.g., `Bicycle`, `Elephant`, `Phone`).
 2. Create a Java class for this object.
 3. Define at least three fields (attributes) and one method (behavior).
+4. Write the code in a `.java` file.
 
 ---
 
@@ -364,7 +366,129 @@ public class Student {
 
 ---
 
-## 6. Overriding the `toString()` Method
+## 6. Static Fields and Methods
+
+### Explanation
+
+Static fields and methods belong to the class itself rather than any instance (object) of the class. They are shared among all instances of the class.
+
+- **Static Fields (Class Variables):** A single copy exists regardless of the number of instances.
+- **Static Methods:** Can be called without creating an instance of the class.
+
+**Key Points:**
+
+- Use the `static` keyword to declare static fields or methods.
+- Static methods cannot access instance variables (`non-static` fields) directly.
+
+### Example
+
+#### Counting Instances with a Static Field
+
+Let's modify the `Student` class to keep track of the total number of `Student` objects created.
+
+```java
+public class Student {
+    // Instance Fields
+    String name;
+    int age;
+    String studentID;
+
+    // Static Field
+    static int studentCount = 0;
+
+    // Parameterized constructor using 'this'
+    public Student(String name, int age, String studentID) {
+        this.name = name;
+        this.age = age;
+        this.studentID = studentID;
+        studentCount++; // Increment static counter
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
+        System.out.println("Student ID: " + this.studentID);
+    }
+
+    // Static Method
+    public static int getStudentCount() {
+        return studentCount;
+    }
+}
+```
+
+#### Main.java
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student("Alice", 20, "S001");
+        Student s2 = new Student("Bob", 22, "S002");
+        Student s3 = new Student("Charlie", 21, "S003");
+
+        // Display individual student info
+        s1.displayInfo();
+        s2.displayInfo();
+        s3.displayInfo();
+
+        // Access static field via class name
+        System.out.println("Total Students: " + Student.getStudentCount());
+    }
+}
+```
+
+**Sample Output:**
+
+```
+Name: Alice
+Age: 20
+Student ID: S001
+Name: Bob
+Age: 22
+Student ID: S002
+Name: Charlie
+Age: 21
+Student ID: S003
+Total Students: 3
+```
+
+### Mermaid Diagram
+
+```mermaid
+classDiagram
+    class Student {
+        - String name
+        - int age
+        - String studentID
+        - static int studentCount
+        + Student(String name, int age, String studentID)
+        + displayInfo()
+        + static getStudentCount() int
+    }
+    class Main {
+        + main(String[] args)
+    }
+    Main --> Student : uses
+```
+
+### DIY Coding Task
+
+**Objective**: Practice using static fields and methods.
+
+**Task**:
+
+1. Modify your `Student` class:
+   - Add a static field `studentCount` to keep track of the number of `Student` instances.
+   - Increment `studentCount` in each constructor.
+   - Add a static method `getStudentCount()` that returns the value of `studentCount`.
+2. Update your `Main` class:
+   - Create multiple `Student` objects.
+   - After creating them, print out the total number of students using `Student.getStudentCount()`.
+3. Compile and run your program to see the total count.
+
+---
+
+## 7. Overriding the `toString()` Method
 
 ### Explanation
 
@@ -442,31 +566,44 @@ Book{title='Effective Java', author='Joshua Bloch', price=45.99}
 
 ---
 
-## 7. Summary and Further Reading
+## 8. Summary and Further Reading
 
 In this lab, we've covered:
 
-- Defining classes and their importance in Java OOP.
-- Creating objects from classes.
-- Using constructors to initialize objects.
-- Understanding and using the `this` keyword.
-- Overriding the `toString()` method to provide meaningful object representations.
+- **Defining Classes**: Understanding how to create classes in Java.
+- **Creating Objects**: Learning how to instantiate objects from classes.
+- **Constructors**: Using default and parameterized constructors to initialize objects.
+- **The `this` Keyword**: Referring to the current object instance.
+- **Static Fields and Methods**: Using static members that belong to the class rather than instances.
+- **Overriding the `toString()` Method**: Providing meaningful string representations of objects.
 
 ### Further Reading
 
 - **Official Documentation**:
   - [Java Tutorials - Classes and Objects](https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html)
   - [Using the `this` Keyword](https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html)
+  - [Understanding Class Members](https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html)
   - [Overriding Methods](https://docs.oracle.com/javase/tutorial/java/IandI/override.html)
 - **Books**:
   - *Head First Java* by Kathy Sierra & Bert Bates
 - **Online Resources**:
   - [W3Schools Java Constructors](https://www.w3schools.com/java/java_constructors.asp)
+  - [W3Schools Java Static Keyword](https://www.w3schools.com/java/java_class_members.asp)
   - [GeeksforGeeks - `this` Keyword in Java](https://www.geeksforgeeks.org/this-reference-in-java/)
   - [Overriding `toString()` Method](https://www.geeksforgeeks.org/overriding-tostring-method-in-java/)
 
 ---
 
-**Congratulations!** You've now practiced creating and using classes, constructors, the `this` keyword, and overriding the `toString()` method in Java. Keep experimenting with new classes and explore inheritance, polymorphism, and other OOP concepts to deepen your understanding.
+**Congratulations!** You've now practiced creating and using classes, constructors, the `this` keyword, static fields and methods, and overriding the `toString()` method in Java. Keep experimenting with new classes and explore inheritance, polymorphism, and other OOP concepts to deepen your understanding.
 
 ---
+
+# End of Lab
+
+This lab has introduced you to fundamental concepts of Java OOP, providing a solid foundation for further exploration. Remember to:
+
+- Practice coding regularly to reinforce your understanding.
+- Read documentation and tutorials to expand your knowledge.
+- Experiment with your own classes and projects.
+
+Happy coding!
