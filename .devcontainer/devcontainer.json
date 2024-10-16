@@ -17,5 +17,5 @@
     }
   },
   // Open a Java file so that Java Projects Explorer is visible
-  "postStartCommand": "code ./src/ie/atu/testpackage/HelloWorld.java "
+  "postStartCommand": "code /workspaces/w5-lab-classes-objects-danielcregg/src/ie/atu/testpackage/HelloWorld.java"
 }
