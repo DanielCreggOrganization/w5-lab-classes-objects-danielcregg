@@ -6,6 +6,20 @@ public class Student {
     int age;
     boolean isRegistered;
 
+    // Default constructor
+    public Student() {
+        studentID = "S00000";
+        age = 18;
+        isRegistered = false;
+    }
+    
+    // Constructor
+    public Student(String studentID) {
+        this.studentID = studentID;
+        age = 18;
+        isRegistered = false;
+    }
+
     // Constructor
     public Student(String studentID, int age, boolean isRegistered) {
         this.studentID = studentID;
