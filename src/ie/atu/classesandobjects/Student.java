@@ -2,7 +2,7 @@ package ie.atu.classesandobjects;
 
 public class Student {
     // Static Field
-    static int studentCount = 0;
+    public static int studentCount = 0;
 
     // Instance variables
     String studentID;
