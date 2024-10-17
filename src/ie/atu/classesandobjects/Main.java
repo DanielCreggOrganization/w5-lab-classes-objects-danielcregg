@@ -10,5 +10,8 @@ public class Main {
       // Call the displayInfo method on the studentObject1
       studentObject1.displayInfo();
       studentObject2.displayInfo();
+
+      // Call the static method getStudentCount
+      System.out.println("Student Count: " + Student.getStudentCount());
    }
 }
