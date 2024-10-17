@@ -44,4 +44,10 @@ public class Student {
     public static int getStudentCount() {
         return studentCount;
     }
+
+    // Overriding the toString method
+    @Override
+    public String toString() {
+        return "Student ID: " + studentID + "\nAge: " + age + "\nRegistered: " + isRegistered;
+    }
 }
