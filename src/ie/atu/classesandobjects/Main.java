@@ -15,7 +15,8 @@ public class Main {
       studentObject2.displayInfo();
       studentObject3.displayInfo();
 
-      // Call the static method getStudentCount
+      // Call the static method getStudentCount.
+      // Note that you do not have to create a Student object to call this method
       System.out.println("Student Count: " + Student.getStudentCount());
 
       // Call the toString method on each object

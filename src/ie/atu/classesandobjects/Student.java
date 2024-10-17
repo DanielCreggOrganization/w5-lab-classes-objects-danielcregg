@@ -1,7 +1,8 @@
 package ie.atu.classesandobjects;
 
 public class Student {
-    // Static Field
+    // Static variable (AKA class variable) to keep track of the number of students.
+    // This variable is shared among all objects of the  Student class.
     public static int studentCount = 0;
 
     // Instance variables
@@ -9,7 +10,7 @@ public class Student {
     int age;
     boolean isRegistered;
 
-    // Default constructor
+    // Default constructor - no parameters
     public Student() {
         studentID = "S00000";
         age = 18;
@@ -17,7 +18,7 @@ public class Student {
         studentCount++;
     }
 
-    // Constructor
+    // Constructor - one parameter
     public Student(String studentID) {
         this.studentID = studentID;
         age = 18;
@@ -25,7 +26,7 @@ public class Student {
         studentCount++;
     }
 
-    // Constructor
+    // Constructor - three parameters
     public Student(String studentID, int age, boolean isRegistered) {
         this.studentID = studentID;
         this.age = age;
@@ -40,7 +41,7 @@ public class Student {
         System.out.println("Registered: " + isRegistered);
     }
 
-    // Static Method
+    // Static Method - you do not have to create a Student object to call this method
     public static int getStudentCount() {
         return studentCount;
     }
